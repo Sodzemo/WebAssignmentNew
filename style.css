@@ -1,0 +1,339 @@
+/* =========================================
+   1. GLOBAL RESET & BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0b0f19; /* Deep premium dark background */
+    color: #f3f4f6;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================================
+   2. TOP DIVISION (HEADER)
+   ========================================= */
+.top-division {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px 36px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+}
+
+.portion-a h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff; 
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+/* Vivid glowing gradient text accent */
+.gradient-text {
+    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.4));
+}
+
+/* Animated Tagline */
+.anim-tagline {
+    font-size: 14px;
+    color: #9ca3af;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.4;
+    opacity: 0; /* Starts invisible */
+    transform: translateY(10px); /* Starts slightly lower */
+    animation: textRevealSlide 0.8s ease-out forwards;
+    animation-delay: 0.3s; /* Waits a split second before sliding in */
+}
+
+.portion-b {
+    display: flex;
+    align-items: center;
+}
+
+.portion-b img {
+    height: 60px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.6)); 
+}
+
+/* =========================================
+   3. MAIN LAYOUT & MENU
+   ========================================= */
+.main-layout-wrapper {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+
+.menu-division {
+    width: 220px;
+    background-color: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-division h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4b5563;
+    margin-bottom: 8px;
+    padding-left: 12px;
+}
+
+/* Forces the nav links to stack vertically */
+.menu-division nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-division a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: block; /* Ensures the whole link area is clickable */
+}
+
+.menu-division a:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+    color: #818cf8;
+    padding-left: 18px;
+}
+
+/* Highlights the active page automatically */
+.menu-division a.active {
+    background-color: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    border-left: 3px solid #818cf8;
+}
+
+/* =========================================
+   4. CONTENT DIVISION & FORMS
+   ========================================= */
+.content-division {
+    flex: 1;
+    background-color: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-division h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.content-division .highlight-text {
+    font-size: 20px;
+    color: #818cf8;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.content-division .wishes-text {
+    font-size: 16px;
+    color: #10b981;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+form {
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #1f2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* =========================================
+   5. RESULTS DISPLAY & ANIMATIONS
+   ========================================= */
+.result-item {
+    background-color: #1f2937;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+}
+
+.result-item span {
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+@keyframes textRevealSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   6. HOME PAGE HERO DASHBOARD
+   ========================================= */
+.hero-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: #818cf8;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    text-transform: uppercase;
+}
+
+.hero-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.4));
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.exam-title {
+    font-size: 48px !important; /* Overrides the standard h2 size */
+    font-weight: 800;
+    margin-bottom: 16px !important;
+    background: linear-gradient(to right, #ffffff, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -1px;
+}
+
+.highlight-badge {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+    color: #a78bfa;
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    margin-bottom: 36px;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.1);
+}
+
+.wishes-box {
+    display: inline-block;
+    font-size: 20px;
+    color: #10b981;
+    font-weight: 700;
+    letter-spacing: 4px;
+    padding: 16px 36px;
+    border-radius: 12px;
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px dashed rgba(16, 185, 129, 0.3);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.sparkle {
+    opacity: 0.8;
+    margin: 0 8px;
+}
+
+/* Smooth floating animation for the center icon */
+@keyframes floatIcon {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
